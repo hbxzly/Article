@@ -1,6 +1,4 @@
-# Redis运维的复制、哨兵、集群与可视化工具CacheCloud
-
-[TOC]
+# [Redis运维的复制、哨兵、集群与可视化工具CacheCloud](https://blog.csdn.net/carolcoral/article/details/86480716)
 
 ## 1. 基本操作
 

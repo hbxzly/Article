@@ -15,7 +15,7 @@ Some articles around Dev
 
 * [通过logstash让文本内容在ES上自动换行显示](https://github.com/carolcoral/Article/blob/master/OAM/logstash/%E9%80%9A%E8%BF%87logstash%E8%AE%A9%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E5%9C%A8ES%E4%B8%8A%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C%E6%98%BE%E7%A4%BA.md)
 
-### 服务器
+### WebServer
 * [ubuntu 部署Flask（阿里云）](https://github.com/carolcoral/Article/blob/master/OAM/Server/ubuntu%20%E9%83%A8%E7%BD%B2Flask%EF%BC%88%E9%98%BF%E9%87%8C%E4%BA%91%EF%BC%89.md)
 
 * [Tomcat在 CentOS 和 Ubuntu 中的安装配置](https://github.com/carolcoral/Article/blob/master/OAM/Server/Tomcat%E5%9C%A8%20CentOS%20%E5%92%8C%20Ubuntu%20%E4%B8%AD%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE.md)

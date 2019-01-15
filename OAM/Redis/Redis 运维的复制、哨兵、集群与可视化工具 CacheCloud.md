@@ -53,7 +53,9 @@
     |auth-pass|sentinel set mymaster auth-pass masterPassword|
     
     `sentinel set` 命令只对当前sentinel节点有效
+    
     `sentinel set` 命令执行完成后立即生效，无需使用 `config rewrite` 刷新配置
+    
     sentinel 对外不支持 `config` 命令
 
  8. 返回指定主节点的IP地址和端口 `sentinel get-master-addr-by-name <master-name>`
@@ -64,9 +66,13 @@
  13. 取消当前sentinel节点对指定主节点的监控 `sentinel remove <master-name>`
  14. 以命令行方式完成sentinel节点对指定主节点的监控 `sentinel monitor <master-name> <ip> <port> <quorum>`
  15. sentinel节点之间交换对主节点是否下线的判断 `sentinel is-master-down-by-addr <ip> <port> <current_epoch> <runid>`
+    
     `ip` 主节点ip
+    
     `port` 主节点端口
+    
     `current_epoch` 当前配置纪元
+    
     `runid` 当为'*'时，sentinel节点直接交换对主节点下线的判定。当为当前sentinel节点的runid时，作用是当前sentinel节点希望目标sentinel节点统一自己成为领导者的请求
 
  16. 获取sentinel对应主节点的信息 `sentinel get-master-addr-by-name master-name`
@@ -104,6 +110,7 @@ sentinel failover-timeout mymaster 180000
  3. 集群模式下让一个节点成为从节点 `cluster replicate {nodeId}` 该命令必须在对应的从节点上执行
  4. 批量分配槽 `redis-cli -h 127.0.0.1 -p 6379 cluster addslots {0...5461}`
  5. 数据迁移
+ 
     5.1 目标节点准备导入槽的数据 `cluster setslot {slot} importing {sourceNodeId}`
     5.2 源节点准备迁出槽的数据 `cluster setslot {slot} migrating {targetNodeId}`
     5.3 源节点循环执行获取count个属于槽{slot}的键 `cluster getkeysinslot {slot} {count}`
@@ -131,13 +138,14 @@ sentinel failover-timeout mymaster 180000
     `redis-trib.rb add-node 127.0.0.1:6385 127.0.0.1:6379`
  5. 槽重分片功能 
     `redis-trib.rb reshard host:port --from <arg> --to <arg> --slots <arg> --yes --timeout <arg> --pipeline <arg>` 
-    host:port 必传参数，集群内任意节点地址，用来获取整个集群信息
-    --from 制定源节点的id，如果有多个源节点，使用逗号分割，如果是all源节点变为集群内所有主节点，在迁移过程中提示用户输入
-    --to 需要迁移的目标节点的id，目标节点只能填写一个，在迁移过程中提示用户输入
-    --slots 需要迁移槽的总数量，在迁移过程中提示用户输入
-    --yes 当打印出reshard执行计划时，是否需要用户输入yes确认后在执行reshard
-    --timeout 控制每次migrate操作的超时时间，默认为60000毫秒
-    --pipeline 控制每次批量迁移键的数量，默认是10
+    
+    - host:port 必传参数，集群内任意节点地址，用来获取整个集群信息
+    - --from 制定源节点的id，如果有多个源节点，使用逗号分割，如果是all源节点变为集群内所有主节点，在迁移过程中提示用户输入
+    - --to 需要迁移的目标节点的id，目标节点只能填写一个，在迁移过程中提示用户输入
+    - --slots 需要迁移槽的总数量，在迁移过程中提示用户输入
+    - --yes 当打印出reshard执行计划时，是否需要用户输入yes确认后在执行reshard
+    - --timeout 控制每次migrate操作的超时时间，默认为60000毫秒
+    - --pipeline 控制每次批量迁移键的数量，默认是10
 
  6. 检查节点均衡性 
     `redis-trib.rb rebalance`
@@ -149,6 +157,7 @@ sentinel failover-timeout mymaster 180000
     `redis-trib.rb info 127.0.0.1:6379`
  10. 单机数据迁移到集群中
     `redis-trib.rb import host:port --from <arg> --copy --replace`
+    
     迁移只能从单机节点向集群环境导入数据
     不支持在线迁移数据，迁移数据的时候应用方必须停写，无法平滑迁移数据
     迁移过程中途如果出现超时等错误，不支持断点续传只能重新全量导入

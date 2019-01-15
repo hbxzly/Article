@@ -92,14 +92,23 @@ sentinel failover-timeout mymaster 180000
 ```
 
 `sentinel` 节点默认端口 26379
+
 `sentinel monitor <主节点别名> <主节点地址> <主节点端口> <主节点失败后至少需要多少哨兵节点同意才能升级为主节点的数量>`
+
 `port` 代表sentinel节点的端口
+
 `dir` 代表sentinel节点的工作目录
+
 `down-after-milliseconds` sentinel节点连接主节点的超时时间
+
 `parallel-syncs` 从节点对新主节点发起复制操作的从节点个数
+
 `failover-timeout` 故障转移超时时间，作用于故障转移的每个阶段
+
 `sentinel auth-pass <master-name> <password>` 如果主节点设置了密码，哨兵节点同样需要设置相同密码才能访问 
+
 `sentinel notification-script <master-name> <script-path>` 配置故障转移期间通过指定的脚本发送一些告警级别的时间信息，其中script-path是脚本路径 
+
 `sentinel client-reconfig-script <master-name> <script-path>` 故障转移结束后触发指定的脚本
 
 ## 4.集群
@@ -112,10 +121,15 @@ sentinel failover-timeout mymaster 180000
  5. 数据迁移
  
     5.1 目标节点准备导入槽的数据 `cluster setslot {slot} importing {sourceNodeId}`
+    
     5.2 源节点准备迁出槽的数据 `cluster setslot {slot} migrating {targetNodeId}`
+    
     5.3 源节点循环执行获取count个属于槽{slot}的键 `cluster getkeysinslot {slot} {count}`
+    
     5.4 批量键迁移（3.0.6版本以上提供） `migrate {targetIp} {targetPort} "" 0 {timeout} keys {keys...}`
+    
     5.5 重复执行步骤3和步骤4知道槽下所有的键值数据迁移到目标节点
+    
     5.6 向集群内所有主节点发送命令 `cluster setslot {slot} node {targetNodeId}` 通知槽分配给目标节点
 
  6. 忘记节点（不再与下线节点通信，不建议线上操作） `cluster forget {downNodeId}`
@@ -140,11 +154,17 @@ sentinel failover-timeout mymaster 180000
     `redis-trib.rb reshard host:port --from <arg> --to <arg> --slots <arg> --yes --timeout <arg> --pipeline <arg>` 
     
     - host:port 必传参数，集群内任意节点地址，用来获取整个集群信息
+    
     - --from 制定源节点的id，如果有多个源节点，使用逗号分割，如果是all源节点变为集群内所有主节点，在迁移过程中提示用户输入
+    
     - --to 需要迁移的目标节点的id，目标节点只能填写一个，在迁移过程中提示用户输入
+    
     - --slots 需要迁移槽的总数量，在迁移过程中提示用户输入
+    
     - --yes 当打印出reshard执行计划时，是否需要用户输入yes确认后在执行reshard
+    
     - --timeout 控制每次migrate操作的超时时间，默认为60000毫秒
+    
     - --pipeline 控制每次批量迁移键的数量，默认是10
 
  6. 检查节点均衡性 

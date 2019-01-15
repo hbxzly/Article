@@ -51,6 +51,7 @@
     |notification-script|sentinel set mymaster notification-script /opt/xx.sh|
     |client-reconfig-script|sentinel set mymaster client-reconfig-script /opt/yy.sh|
     |auth-pass|sentinel set mymaster auth-pass masterPassword|
+    
     `sentinel set` 命令只对当前sentinel节点有效
     `sentinel set` 命令执行完成后立即生效，无需使用 `config rewrite` 刷新配置
     sentinel 对外不支持 `config` 命令

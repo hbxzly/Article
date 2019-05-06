@@ -37,6 +37,13 @@ ctrl+v  这样会启动可视模式，按 j/k 可以发现它能够在一列上�
  :sort 排序
 ```
 
+3.修改文件格式从DOS到UNIX
+```
+vim dos.txt
+:set fileformat=unix
+:w
+```
+
 ## Curl
 1.上传文件 
 ```

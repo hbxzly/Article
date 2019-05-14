@@ -40,6 +40,18 @@ baseurl=file:///mnt
 enabled=1
 gpgcheck=0
 ```
+5.4 移动默认的配置文件到上一层
+```
+mv /etc/yum.repos.d/Centos-* ../
+```
+5.5 清理yum
+```
+yum clean all
+```
+5.6 查看yum挂载情况
+```
+yum list
+```
 
 ## Vim
 1.vim打开文件后删除指定长度的内容（修改里面的10）

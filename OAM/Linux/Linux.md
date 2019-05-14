@@ -22,6 +22,24 @@ find 00099.dat.l | xargs grep "2019-04-07 20" | wc -l
 lsof -p 11771 -nP | grep TCP
 ```
 
+5.挂载本地ios镜像
+5.1 上传ISO镜像至系统目录/root，使用mount命令挂载镜像至/mnt
+```
+[root@yc ~]# mount /root/CentOS-7-x86_64-DVD-1708.iso /mnt -o loop
+```
+5.2 创建本地的repo文件,编辑文件/etc/yum.repos.d/local.repo
+```
+[root@yc ~]# vi /etc/yum.repos.d/local.repo
+```
+5.3 写入以下内容，file后面的/mnt目录与上一节中ISO挂载目录保持一致
+```
+[local]
+name=local
+baseurl=file:///mnt
+enabled=1
+gpgcheck=0
+```
+
 ## Vim
 1.vim打开文件后删除指定长度的内容（修改里面的10）
 ```

@@ -23,6 +23,7 @@ lsof -p 11771 -nP | grep TCP
 ```
 
 5.挂载本地ios镜像
+
 5.1 上传ISO镜像至系统目录/root，使用mount命令挂载镜像至/mnt
 ```
 [root@yc ~]# mount /root/CentOS-7-x86_64-DVD-1708.iso /mnt -o loop

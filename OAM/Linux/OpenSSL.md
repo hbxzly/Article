@@ -226,9 +226,11 @@ $ openssl rsautl -verify -pubin -inkey rsapublickey.pem -in signature.bin -out f
 ```
 
 #### 证书格式转换
-> 编码转换：DER<-->BASE64 
-不同证书标准的转换：PKCS系列<-->PEM/CER 
-私钥的增/减/提取/转换 
+> 编码转换：DER<-->BASE64
+
+> 不同证书标准的转换：PKCS系列<-->PEM/CER 
+
+> 私钥的增/减/提取/转换 
 
 ```
 # PEM--DER/CER(BASE64--DER编码的转换)       

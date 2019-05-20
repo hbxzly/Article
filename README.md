@@ -33,4 +33,4 @@ Some articles around Dev
 ### Linux
 * [Linux常用命令](https://github.com/carolcoral/Article/blob/master/OAM/Linux/Linux)
 
-* [OpenSSL生成密钥](https://github.com/carolcoral/Article/blob/master/OAM/Linux/OpenSSL.md)
+* [OpenSSL生成密钥](https://github.com/carolcoral/Article/blob/master/OAM/Linux/OpenSSL)

@@ -223,3 +223,51 @@ $ openssl rsautl -sign -inkey rsaprivatekey.pem -in plain.txt -out signature.bin
 # 用公钥匙rsapublickey.pem验证签名signature.bin
 # 输出到文件plain.txt
 $ openssl rsautl -verify -pubin -inkey rsapublickey.pem -in signature.bin -out file.txt
+```
+
+#### 证书格式转换
+> 编码转换：DER<-->BASE64 
+不同证书标准的转换：PKCS系列<-->PEM/CER 
+私钥的增/减/提取/转换 
+
+```
+# PEM--DER/CER(BASE64--DER编码的转换)       
+$openssl x509 -outform der -in certificate.pem -out certificate.der
+
+# PEM--P7B(PEM--PKCS#7)       
+$openssl crl2pkcs7 -nocrl -certfile certificate.cer -out certificate.p7b -certfile CACert.cer
+
+# PEM--PFX(PEM--PKCS#12)       
+$openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile 
+
+# CACert.crtPEM--p12(PEM--PKCS#12)       
+$openssl pkcs12 -export -out Cert.p12 -in Cert.pem -inkey key.pem
+
+# CER/DER--PEM(编码DER--BASE64)       
+$openssl x509 -inform der -in certificate.cer -out certificate.pem
+
+# P7B--PEM(PKCS#7--PEM)       
+$openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
+
+# P7B--PFX(PKCS#7--PKCS#12)       
+$openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer       
+$openssl pkcs12 -export -in certificate.cer -inkey privateKey.key -out certificate.pfx -certfile 
+
+# CACert.cerPFX/p12--PEM(PKCS#12--PEM)       
+$openssl pkcs12 -in certificate.pfx -out certificate.cer       
+
+# 如无需加密pem中私钥，可以添加选项-nodes；       
+# 如无需导出私钥，可以添加选项-nokeys; 
+
+# PEM BASE64--X.509文本格式       
+$openssl x509 -in Key.pem -text -out Cert.pem
+
+# PFX文件中提取私钥(.key)       
+$openssl pkcs12 -in mycert.pfx -nocerts -nodes -out mycert.key
+
+# PEM--SPC       
+$openssl crl2pkcs7 -nocrl -certfile venus.pem -outform DER -out venus.spc
+
+# PEM－－PVK（openssl 1.x开始支持）       
+$openssl rsa -in mycert.pem -outform PVK -pvk-strong -out mypvk.pvk
+```

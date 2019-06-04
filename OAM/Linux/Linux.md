@@ -123,6 +123,18 @@ getconf LONG_BIT
 getconf WORD_BIT
 ```
 
+8.删除文件中包含指定字符串的行(sed)，其中，"abc"也可以用正则表达式来代替。
+```
+# 删除a.txt中含"abc"的行，但不改变a.txt文件本身，操作之后的结果在终端显示
+sed -e '/abc/d'  a.txt
+
+# 删除a.txt中含"abc"的行，将操作之后的结果保存到a.log
+sed -e '/abc/d'  a.txt  > a.log
+
+# 删除含字符串"abc"或“efg"的行，将结果保存到a.log
+sed '/abc/d;/efg/d' a.txt > a.log
+```
+
 ## Vim
 1.vim打开文件后删除指定长度的内容（修改里面的10）
 ```

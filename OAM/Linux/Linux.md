@@ -4,7 +4,7 @@
 ./bin/kafka-topics.sh --zookeeper localhost:2181 --list
 ```
 
-2.创建执行分区数的topic
+2.创建指定分区数的topic
 ```
 ./bin/kafka-topics.sh --create --topic test_t3_java_log_a_10000_00125  --zookeeper 10.25.151.169:2181 --partitions 10 --replication-factor 1
 ```
@@ -17,6 +17,23 @@
 4.新增指定topic的分区数
 ```
 ./bin/kafka-topics.sh --zookeeper  10.25.246.47:2181  --alter --partitions 13 --topic  t3_java_log_a_10000_test1
+```
+
+5.启动zookeeper
+```
+nohup bin/zookeeper-server-start.sh config/zookeeper.properties &
+```
+6.启动kafka
+```
+nohup bin/kafka-server-start.sh config/server.properties &
+```
+7.停止kafka
+```
+bin/kafka-server-stop.sh
+```
+8.停止zookeeper
+```
+bin/zookeeper-server-stop.sh
 ```
 
 ## Linux

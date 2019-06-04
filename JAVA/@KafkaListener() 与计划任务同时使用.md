@@ -54,7 +54,9 @@ spring.kafkaListenerList = topic1,topic2
 ```
 #### 第二种
 `KafkaListenerReceiver`是自定义的消费对象
+
 * KafkaListenerConfig.java
+
 ```
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -126,7 +128,9 @@ public class KafkaListenerConfig implements BeanDefinitionRegistryPostProcessor,
     }
 }
 ```
+
 * KafkaListenerReceiver.java
+
 ```
 @KafkaListener(topics = "#{__listener.topic}")
 ```

@@ -97,6 +97,21 @@ sed -e '/abc/d'  a.txt  > a.log
 sed '/abc/d;/efg/d' a.txt > a.log
 ```
 
+9.Linux删除重复行
+```
+# sort+uniq，注意，单纯uniq是不行的。
+sort -n test.txt | uniq
+
+# sort+uniq 并输出过滤文件到新的文件中，注意，单纯uniq是不行的。
+sort -n test.txt | uniq > test.log
+
+# sort+awk命令，注意，单纯awk同样不行，原因同上。
+sort -n $file | awk '{if($0!=line)print; line=$0}'
+　
+# sort+sed命令，同样需要sort命令先排序。
+sort -n $file | sed '$!N; /^.∗.∗\n\1$/!P; D'
+```
+
 ## Vim
 1.vim打开文件后删除指定长度的内容（修改里面的10）
 ```

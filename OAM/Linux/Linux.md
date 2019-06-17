@@ -1,41 +1,3 @@
-## kafka
-1.查询全部的topic
-```
-./bin/kafka-topics.sh --zookeeper localhost:2181 --list
-```
-
-2.创建指定分区数的topic
-```
-./bin/kafka-topics.sh --create --topic test_t3_java_log_a_10000_00125  --zookeeper 10.25.151.169:2181 --partitions 10 --replication-factor 1
-```
-
-3.查询指定topic的当前offset情况
-```
-./bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list 127.0.0.1:9092 --topic test-log --time -1
-```
-
-4.新增指定topic的分区数
-```
-./bin/kafka-topics.sh --zookeeper  10.25.246.47:2181  --alter --partitions 13 --topic  t3_java_log_a_10000_test1
-```
-
-5.启动zookeeper
-```
-nohup bin/zookeeper-server-start.sh config/zookeeper.properties &
-```
-6.启动kafka
-```
-nohup bin/kafka-server-start.sh config/server.properties &
-```
-7.停止kafka
-```
-bin/kafka-server-stop.sh
-```
-8.停止zookeeper
-```
-bin/zookeeper-server-stop.sh
-```
-
 ## Linux
 1.查看当前路径下指定所有包含00099的文件的总大小，单位kb 
 ```
@@ -177,4 +139,75 @@ Note: Unnecessary use of -X or --request, POST is already inferred.
 < 
 * Closing connection 0
 {"code": "000000", "desc": "success", "data": {"1554947856915.log": "000000", "1554947856915.log": "000000"}}
+```
+
+## kafka
+1.查询全部的topic
+```
+./bin/kafka-topics.sh --zookeeper localhost:2181 --list
+```
+
+2.创建指定分区数的topic
+```
+./bin/kafka-topics.sh --create --topic test_t3_java_log_a_10000_00125  --zookeeper 10.25.151.169:2181 --partitions 10 --replication-factor 1
+```
+
+3.查询指定topic的当前offset情况
+```
+./bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list 127.0.0.1:9092 --topic test-log --time -1
+```
+
+4.新增指定topic的分区数
+```
+./bin/kafka-topics.sh --zookeeper  10.25.246.47:2181  --alter --partitions 13 --topic  t3_java_log_a_10000_test1
+```
+
+5.启动zookeeper
+```
+nohup bin/zookeeper-server-start.sh config/zookeeper.properties &
+```
+6.启动kafka
+```
+nohup bin/kafka-server-start.sh config/server.properties &
+```
+7.停止kafka
+```
+bin/kafka-server-stop.sh
+```
+8.停止zookeeper
+```
+bin/zookeeper-server-stop.sh
+```
+
+## mysql
+
+1.查看MySQL服务器是否启动
+```
+ps -ef | grep mysqld
+```
+
+2.查看服务运行的状态
+```
+service mysqld status
+```
+
+3.常用命令
+```
+#启动
+service mysqld start
+
+#停止
+service mysqld stop
+
+#重启
+service mysqld restart
+
+#查看状态
+service mysqld status
+
+#查看状态
+systemctl status mysqld.service
+
+#导出数据库
+./bin/mysqldump -u root -p lognew_pro_database > ./lognew_pro_database.sql
 ```

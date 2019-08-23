@@ -26,6 +26,7 @@ if @decorate_events
 
 * 重点在于filter中的 [mutate](https://www.elastic.co/guide/en/logstash/current/plugins-filters-mutate.html) 属性的使用
 
+
 ```java
 input {
         kafka {

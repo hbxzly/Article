@@ -24,6 +24,8 @@ Some articles around Dev
 
 * [通过logstash让文本内容在ES上自动换行显示](https://carolcoral.github.io/Article/OAM/logstash/%E9%80%9A%E8%BF%87logstash%E8%AE%A9%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E5%9C%A8ES%E4%B8%8A%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C%E6%98%BE%E7%A4%BA)
 
+* [使用logstash将kafka中的元数据写入到es中](https://carolcoral.github.io/Article/OAM/logstash/使用logstash将kafka中的元数据写入到es中)
+
 ### WebServer
 * [ubuntu 部署Flask（阿里云）](https://carolcoral.github.io/Article/OAM/Server/ubuntu%20%E9%83%A8%E7%BD%B2Flask%EF%BC%88%E9%98%BF%E9%87%8C%E4%BA%91%EF%BC%89)
 

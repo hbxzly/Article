@@ -1,5 +1,7 @@
 ## 目前用的是logstash7.3版本，匹配kafka2.0以上。[Logstash7.3 kafka input doc](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-kafka.html)
+
 ## logstash7.3目前支持的元数据只有，header元数据目前logstash暂时不支持
+
 > 通过源代码可以看出 [logstash-input-kafka](https://github.com/logstash-plugins/logstash-input-kafka/blob/master/lib/logstash/inputs/kafka.rb)
 
 ```ruby
@@ -21,7 +23,9 @@ if @decorate_events
 * [@metadata][kafka][timestamp]: Timestamp in the Record. Depending on your broker 
 
 ## 配置文件如下：
+
 * 重点在于filter中的 [mutate](https://www.elastic.co/guide/en/logstash/current/plugins-filters-mutate.html) 属性的使用
+
 ```java
 input {
         kafka {

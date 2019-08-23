@@ -2,7 +2,7 @@
 
 ## 核心代码
 #### GracefulShutdown.java
-```
+```java
 package cnkj.site.utils;
 
 import org.apache.catalina.LifecycleException;
@@ -89,7 +89,7 @@ public class GracefulShutdown implements TomcatConnectorCustomizer, ApplicationL
 ```
 
 #### Shutdown.java
-```
+```java
 import cnkj.site.utils.GracefulShutdown;
 import org.springframework.stereotype.Component;
 
@@ -111,7 +111,7 @@ public class Shutdown extends GracefulShutdown {
 ```
 
 #### ApplicationStarterRunner.java
-```
+```java
 package cn.migu.log.component;
 
 import cnkj.site.utils.HttpCommonUtil;
@@ -136,7 +136,7 @@ public class ApplicationStarterRunner implements CommandLineRunner {
 ```
 
 #### CommonInfo.java
-```
+```java
 package cnkj.site.utils;
 
 import lombok.Builder;
@@ -183,7 +183,7 @@ public class CommonInfo implements InfoContributor {
 ```
 
 #### HttpCommonUtil.java
-```
+```java
 package cnkj.site.utils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -209,7 +209,7 @@ public class HttpCommonUtil {
 ```
 
 #### application.properties
-```
+```java
 #服务关闭
 management.endpoint.shutdown.enabled=true
 #监控相关
@@ -219,15 +219,26 @@ management.endpoints.web.exposure.include=info
 
 ## 操作步骤
 项目使用步骤：
+
 1.拷贝上面的 Shutdown.java 代码到自己的项目中
+
 2.在 Shutdown.java 文件中的shutdown 方法中写定制化的关闭操作流程
 
+
 脚本使用步骤：
+
 1.从git获取最新的项目关闭脚本 https://github.com/carolcoral/CommonUtils/tree/master/shell/server_close
+
 2.压缩server_close 为server_close.zip
+
 3.上传 server_close.zip 到你服务所在服务器上的 /data/shell 路径下
+
 4.配置环境变量 vim /etc/profile
+
 5.在profile文件的最下面新增 export PATH=/data/shell/server_close:$PATH
+
 6.保存并退出 :wq
+
 7.如果提示  /bin/bash^M: bad interpreter: No such file or directory，请vim serviceControll.sh，然后 :set fileformat=unix ，然后 :wq 保存并退出即可
+
 8.cd /data/shell/server_close & ./serviceControll.sh 运行即可使用服务关闭脚本

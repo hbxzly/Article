@@ -1,5 +1,7 @@
 ### 以下是近期遇到的一些面试题，欢迎push答案
 
+[TOC]
+
 ##### 1. java的8中基本类型
 > int short long byte boolean float double char
 
@@ -175,6 +177,21 @@
 > `TransactionDefinition.PROPAGATION_MANDATORY`：如果当前存在事务，则加入该事务；如果当前没有事务，则抛出异常。
 > 
 > `TransactionDefinition.PROPAGATION_NESTED`：如果当前存在事务，则创建一个事务作为当前事务的嵌套事务来运行；如果当前没有事务，则该取值等价于`TransactionDefinition.PROPAGATION_REQUIRED`。
+
+
+##### 34. 集合 HashMap 的原理，与 Hashtable、ConcurrentHashMap 的区别？
+##### 35. Java 线程池的核心属性以及处理流程
+##### 36. Java 并发包原理、Synchronized关键字、锁
+##### 37. 线程的生命周期
+##### 38. JVM类加载机制
+##### 39. JVM内存模型
+##### 40. JVM分代以及垃圾回收机制
+##### 41. Spring Bean 容器生命周期
+##### 42. Spring AOP 原理
+##### 43. Dubbo 请求流程以及原理
+##### 44. 数据库 SQL 优化、数据库索引、索引原理
+
+
 
 
 

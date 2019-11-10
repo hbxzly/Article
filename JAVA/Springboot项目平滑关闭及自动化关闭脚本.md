@@ -227,7 +227,7 @@ management.endpoints.web.exposure.include=info
 
 脚本使用步骤：
 
-1.从git获取最新的项目关闭脚本 https://github.com/carolcoral/CommonUtils/tree/master/shell/server_close
+1.从git获取最新的项目关闭脚本 [https://github.com/carolcoral/CommonUtils/tree/master/Shell/server_close](https://github.com/carolcoral/CommonUtils/tree/master/Shell/server_close)
 
 2.压缩server_close 为server_close.zip
 

@@ -16,6 +16,8 @@ Some articles around Dev
 
 * [@KafkaListener() 与计划任务同时使用](https://carolcoral.github.io/Article/JAVA/%40KafkaListener()%20与计划任务同时使用)
 
+* [Java获取指定topic每个分区的当前偏移量](https://carolcoral.github.io/Article/JAVA/Java获取指定topic每个分区的当前偏移量)
+
 ## Python
 * [支持高并发下的Flask架构部署](https://carolcoral.github.io/Article/Python/支持高并发下的Flask架构部署)
 

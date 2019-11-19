@@ -16,6 +16,10 @@ Some articles around Dev
 
 * [@KafkaListener() 与计划任务同时使用](https://carolcoral.github.io/Article/JAVA/%40KafkaListener()%20与计划任务同时使用)
 
+## Python
+* [支持高并发下的Flask架构部署](https://carolcoral.github.io/Article/Python/支持高并发下的Flask架构部署.md)
+
+* [游标查询elasticsearch数据](https://carolcoral.github.io/Article/Python/游标查询elasticsearch数据)
 
 
 ## 运维

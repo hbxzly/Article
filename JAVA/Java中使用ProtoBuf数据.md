@@ -1,4 +1,4 @@
-@[TOC](Java中使用ProtoBuf数据)
+@[TOC](#前置要求[Protobuf])
 
 ## 前置要求[Protobuf](https://github.com/protocolbuffers/protobuf)
 ### 安装protobuf环境

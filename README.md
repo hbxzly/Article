@@ -18,6 +18,8 @@ Some articles around Dev
 
 * [Java获取指定topic每个分区的当前偏移量](https://carolcoral.github.io/Article/JAVA/Java获取指定topic每个分区的当前偏移量)
 
+* [Java中使用ProtoBuf数据](https://carolcoral.github.io/Article/JAVA/Java中使用ProtoBuf数据)
+
 ## Python
 * [支持高并发下的Flask架构部署](https://carolcoral.github.io/Article/Python/支持高并发下的Flask架构部署)
 

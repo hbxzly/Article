@@ -20,6 +20,8 @@ Some articles around Dev
 
 * [Java中使用ProtoBuf数据](https://carolcoral.github.io/Article/JAVA/Java中使用ProtoBuf数据)
 
+* [Dom4j 解析soap格式的xml数据](https://carolcoral.github.io/Article/JAVA/Dom4j 解析soap格式的xml数据)
+
 ## Python
 * [支持高并发下的Flask架构部署](https://carolcoral.github.io/Article/Python/支持高并发下的Flask架构部署)
 

@@ -26,7 +26,7 @@ Some articles around Dev
 
 * [基于Springboot构建ES的多客户端](https://carolcoral.github.io/Article/JAVA/基于Springboot构建ES的多客户端)
 
-* [基于Spring-Kafka 完成的一些基本操作](https://carolcoral.github.io/Article/JAVA/基于Spring-Kafka 完成的一些基本操作)
+* [基于Spring-Kafka 完成的一些基本操作](https://carolcoral.github.io/Article/JAVA/基于Spring-Kafka完成的一些基本操作)
 
 * [基于High-level-rest-client使用JavaAPI完成对Elasticsearch的聚合查询](https://carolcoral.github.io/Article/JAVA/基于High-level-rest-client使用JavaAPI完成对Elasticsearch的聚合查询)
 

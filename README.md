@@ -22,10 +22,20 @@ Some articles around Dev
 
 * [Dom4j解析soap格式的xml数据](https://carolcoral.github.io/Article/JAVA/Dom4j解析soap格式的xml数据)
 
+* [基于RSA的文件加解密](https://carolcoral.github.io/Article/JAVA/基于RSA的文件加解密)
+
+* [基于Springboot构建ES的多客户端](https://carolcoral.github.io/Article/JAVA/基于Springboot构建ES的多客户端)
+
+* [基于Spring-Kafka 完成的一些基本操作](https://carolcoral.github.io/Article/JAVA/基于Spring-Kafka 完成的一些基本操作)
+
+* [基于High-level-rest-client使用JavaAPI完成对Elasticsearch的聚合查询](https://carolcoral.github.io/Article/JAVA/基于High-level-rest-client使用JavaAPI完成对Elasticsearch的聚合查询)
+
 ### Python
 * [支持高并发下的Flask架构部署](https://carolcoral.github.io/Article/Python/支持高并发下的Flask架构部署)
 
 * [游标查询elasticsearch数据](https://carolcoral.github.io/Article/Python/游标查询elasticsearch数据)
+
+* [简单的基于Python2.7版本的多进程下开发多线程的示例](https://carolcoral.github.io/Article/Python/简单的基于Python2.7版本的多进程下开发多线程的示例)
 
 
 ## 运维

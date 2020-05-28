@@ -30,6 +30,8 @@ Some articles around Dev
 
 * [基于High-level-rest-client使用JavaAPI完成对Elasticsearch的聚合查询](https://carolcoral.github.io/Article/JAVA/基于High-level-rest-client使用JavaAPI完成对Elasticsearch的聚合查询)
 
+* [基于Springboot执行多个定时任务并且动态获取定时任务信息](https://carolcoral.github.io/Article/JAVA/基于Springboot执行多个定时任务并且动态获取定时任务信息)
+
 ### Python
 * [支持高并发下的Flask架构部署](https://carolcoral.github.io/Article/Python/支持高并发下的Flask架构部署)
 

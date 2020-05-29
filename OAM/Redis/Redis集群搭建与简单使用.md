@@ -141,10 +141,10 @@ gem install redis
 ```
 
 > 之后再运行<code>redis-trib.rb</code>命令，会出现如下提示：
-![avatar](https://images2015.cnblogs.com/blog/273364/201609/273364-20160929150634344-1055901726.jpg)
+![](https://raw.githubusercontent.com/carolcoral/SaveImg/master/1.jpg?token=ACEJW3YRRGPRRVVAC2KOYHK62BY62)
 
 > 输入 yes 即可，然后出现如下内容，说明安装成功。
-![avatar](https://images2015.cnblogs.com/blog/273364/201609/273364-20160929150720000-1999293873.jpg)
+![](https://raw.githubusercontent.com/carolcoral/SaveImg/master/2.jpg?token=ACEJW3YNHJIB4LFRHTFV2HS62BZAY)
 
 #### 8. 集群验证
 > 在第一台机器上连接集群的7002端口的节点，在另外一台连接7005节点，连接方式为
@@ -155,10 +155,10 @@ redis-cli -h 192.168.31.245 -c -p 7002
 > 加参数 <code>-C</code> 可连接到集群，因为上面 redis.conf 将 bind 改为了ip地址，所以 <code>-h</code> 参数不可以省略。
 
 > 在7005节点执行命令  <code>set hello world<code> ，执行结果如下：
-![avatar](https://images2015.cnblogs.com/blog/273364/201609/273364-20160929152337688-1332730145.jpg)
+![](https://raw.githubusercontent.com/carolcoral/SaveImg/master/3.jpg?token=ACEJW36IMNBP3PYZWBDTHXC62BZDY)
 
 > 然后在另外一台7002端口，查看 key 为 hello 的内容， <code>get hello</code>  ，执行结果如下：
-![avatar](https://images2015.cnblogs.com/blog/273364/201609/273364-20160929152449688-978685655.jpg)
+![](https://raw.githubusercontent.com/carolcoral/SaveImg/master/4.jpg?token=ACEJW3ZQL2UOJ3EAEHKQ4HC62BZFI)
 
 > 说明集群运作正常。
 

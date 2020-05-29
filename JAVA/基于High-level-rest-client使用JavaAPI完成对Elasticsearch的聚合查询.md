@@ -1,13 +1,11 @@
 # 基于High-level-rest-client使用JavaAPI完成对Elasticsearch的聚合查询
 
-@[toc]
-**原本是采用 transportClient 来写的，但是一个是官方说明在5.x以后的版本就不怎么支持了，二是因为实际环境上使用了加密，无法通过 transportclient 的方式进行查询了，所以综合了一下采用了 High-level-rest-client 的方式。同时在使用 High-level-rest-client 的方式创建 client 的时候务必注意版本的情况，我这里使用的是5.6版本的，不同版本之间创建 client 的方式的差别还是比较大的。**
+> 原本是采用 transportClient 来写的，但是一个是官方说明在5.x以后的版本就不怎么支持了，二是因为实际环境上使用了加密，无法通过 transportclient 的方式进行查询了，所以综合了一下采用了 High-level-rest-client 的方式。同时在使用 High-level-rest-client 的方式创建 client 的时候务必注意版本的情况，我这里使用的是5.6版本的，不同版本之间创建 client 的方式的差别还是比较大的。
 
-**下面进入正题，因为我使用的是 maven 项目的方式，所以首先 pom.xml 里面是我们可能会用上的一些 jar，其次因为该构建客户端的方式需要 java1.8 版本以上，所以我们在 pom.xml 中指定了 java 的版本，并且确认你自己的运行环境中是否成功安装了 java1.8 及以上版本。** 
+> 下面进入正题，因为我使用的是 maven 项目的方式，所以首先 pom.xml 里面是我们可能会用上的一些 jar，其次因为该构建客户端的方式需要 java1.8 版本以上，所以我们在 pom.xml 中指定了 java 的版本，并且确认你自己的运行环境中是否成功安装了 java1.8 及以上版本。
 
 ## pom.xml
-
-```
+```java
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -95,8 +93,9 @@
 
 
 ## ElasticsearchConfig
-配置使用了lombok的jar包，配置信息保存在 application.properties 中。
-```
+> 配置使用了lombok的jar包，配置信息保存在 application.properties 中。
+
+```java
 @Configuration
 @Data
 public class ElasticsearchConfig {
@@ -118,8 +117,9 @@ public class ElasticsearchConfig {
 ```
 
 ## ElasticsearchService
-在指定的时间范围内（timestamp）查询 关键字对应为 uri 的值为 filtervalue 的信息，timestamp 中的时间范围以时间戳表示
-```
+> 在指定的时间范围内（timestamp）查询 关键字对应为 uri 的值为 filtervalue 的信息，timestamp 中的时间范围以时间戳表示
+
+```java
 @Component
 public class ElasticsearchService {
     private static final Logger LOGGER = LoggerFactory.getLogger(ElasticsearchService.class);

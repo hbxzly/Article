@@ -149,11 +149,11 @@ gem install redis
 
 > 之后再运行<code>redis-trib.rb</code>命令，会出现如下提示：
 
-![avatar](https://raw.githubusercontent.com/carolcoral/SaveImg/master/1.jpg?token=ACEJW3YRRGPRRVVAC2KOYHK62BY62)
+![avatar](https://github.com/carolcoral/SaveImg/blob/master/1.jpg?raw=true)
 
 > 输入 yes 即可，然后出现如下内容，说明安装成功。
 
-![avatar](https://raw.githubusercontent.com/carolcoral/SaveImg/master/2.jpg?token=ACEJW3YNHJIB4LFRHTFV2HS62BZAY)
+![avatar](https://github.com/carolcoral/SaveImg/blob/master/2.jpg?raw=true)
 
 #### 8. 集群验证
 > 在第一台机器上连接集群的7002端口的节点，在另外一台连接7005节点，连接方式为
@@ -166,11 +166,11 @@ redis-cli -h 192.168.31.245 -c -p 7002
 
 > 在7005节点执行命令  <code>set hello world<code> ，执行结果如下：
 
-![avatar](https://raw.githubusercontent.com/carolcoral/SaveImg/master/3.jpg?token=ACEJW36IMNBP3PYZWBDTHXC62BZDY)
+![avatar](https://github.com/carolcoral/SaveImg/blob/master/3.jpg?raw=true)
 
 > 然后在另外一台7002端口，查看 key 为 hello 的内容， <code>get hello</code>  ，执行结果如下：
 
-![avatar](https://raw.githubusercontent.com/carolcoral/SaveImg/master/4.jpg?token=ACEJW3ZQL2UOJ3EAEHKQ4HC62BZFI)
+![avatar](https://github.com/carolcoral/SaveImg/blob/master/4.jpg?raw=true)
 
 > 说明集群运作正常。
 

@@ -58,6 +58,7 @@ appendonly  yes //aof日志开启 有需要就开启，它会每次写操作都�
 
 #### 5. 启动各个节点</p>
 > 第一台机器上执行
+
 ```shell
 redis-server redis_cluster/7000/redis.conf
 redis-server redis_cluster/7001/redis.conf
@@ -65,6 +66,7 @@ redis-server redis_cluster/7002/redis.conf
 ```
 
 > 另外一台机器上执行
+
 ```shell
 redis-server redis_cluster/7003/redis.conf
 redis-server redis_cluster/7004/redis.conf
@@ -73,6 +75,7 @@ redis-server redis_cluster/7005/redis.conf
 
 #### 6. 检查 redis 启动情况
 > 一台机器
+
 ```shell
 ps -ef | grep redis
         
@@ -105,6 +108,7 @@ tcp 0 0 127.0.0.1:7002 0.0.0.0:*                   LISTEN       61029/redis-serv
 ```
 
 >另外一台机器
+
 ```shell
 ps -ef | grep redis
         
@@ -126,6 +130,7 @@ tcp        0      0 127.0.0.1:7005          0.0.0.0:*               LISTEN      
 #### 7.创建集群
 
 > Redis 官方提供了 redis-trib.rb 这个工具，就在解压目录的 src 目录中，第三步中已将它复制到 /usr/local/bin 目录中，可以直接在命令行中使用了。使用下面这个命令即可完成安装。
+
 ```shell
 redis-trib.rb  create  --replicas  1  192.168.31.245:7000 192.168.31.245:7001  192.168.31.245:7002 192.168.31.210:7003  192.168.31.210:7004  192.168.31.210:7005
 ```
@@ -133,19 +138,23 @@ redis-trib.rb  create  --replicas  1  192.168.31.245:7000 192.168.31.245:7001  1
 > 其中，前三个 ip:port 为第一台机器的节点，剩下三个为第二台机器。
 
 > 等等，出错了。这个工具是用 ruby 实现的，所以需要安装 ruby。安装命令如下：
+
 ```shell
 yum -y install ruby ruby-devel rubygems rpm-build
 gem install redis
 ```
 
 > 之后再运行<code>redis-trib.rb</code>命令，会出现如下提示：
+
 ![](https://raw.githubusercontent.com/carolcoral/SaveImg/master/1.jpg?token=ACEJW3YRRGPRRVVAC2KOYHK62BY62)
 
 > 输入 yes 即可，然后出现如下内容，说明安装成功。
+
 ![](https://raw.githubusercontent.com/carolcoral/SaveImg/master/2.jpg?token=ACEJW3YNHJIB4LFRHTFV2HS62BZAY)
 
 #### 8. 集群验证
 > 在第一台机器上连接集群的7002端口的节点，在另外一台连接7005节点，连接方式为
+
 ```shell
 redis-cli -h 192.168.31.245 -c -p 7002  
 ```
@@ -153,9 +162,11 @@ redis-cli -h 192.168.31.245 -c -p 7002
 > 加参数 <code>-C</code> 可连接到集群，因为上面 redis.conf 将 bind 改为了ip地址，所以 <code>-h</code> 参数不可以省略。
 
 > 在7005节点执行命令  <code>set hello world<code> ，执行结果如下：
+
 ![](https://raw.githubusercontent.com/carolcoral/SaveImg/master/3.jpg?token=ACEJW36IMNBP3PYZWBDTHXC62BZDY)
 
 > 然后在另外一台7002端口，查看 key 为 hello 的内容， <code>get hello</code>  ，执行结果如下：
+
 ![](https://raw.githubusercontent.com/carolcoral/SaveImg/master/4.jpg?token=ACEJW3ZQL2UOJ3EAEHKQ4HC62BZFI)
 
 > 说明集群运作正常。

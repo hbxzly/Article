@@ -30,11 +30,13 @@ cp redis-trib.rb /usr/local/bin/
 
 #### 4. 创建 Redis 节点
 > 首先在&nbsp;192.168.31.245 机器上 /root/software/redis-3.2.4 目录下创建&nbsp;redis_cluster 目录；
+
 ```shell 
 mkdir redis_cluster
 ```
 
 > 在 redis_cluster 目录下，创建名为7000、7001、7002的目录，并将 redis.conf 拷贝到这三个目录中
+
 ```shell
 mkdir 7000 7001 7002
 cp redis.conf redis_cluster/7000
@@ -43,6 +45,7 @@ cp redis.conf redis_cluster/7002
 ```
 
 > 分别修改这三个配置文件，修改如下内容
+
 ```shell
 port 7000 //端口7000,7002,7003      
 bind 本机ip //默认ip为127.0.0.1 需要改为其他节点机器可访问的ip 否则创建集群时无法访问对应的端口，无法创建集群
@@ -146,11 +149,11 @@ gem install redis
 
 > 之后再运行<code>redis-trib.rb</code>命令，会出现如下提示：
 
-![](https://raw.githubusercontent.com/carolcoral/SaveImg/master/1.jpg?token=ACEJW3YRRGPRRVVAC2KOYHK62BY62)
+![avatar](https://raw.githubusercontent.com/carolcoral/SaveImg/master/1.jpg?token=ACEJW3YRRGPRRVVAC2KOYHK62BY62)
 
 > 输入 yes 即可，然后出现如下内容，说明安装成功。
 
-![](https://raw.githubusercontent.com/carolcoral/SaveImg/master/2.jpg?token=ACEJW3YNHJIB4LFRHTFV2HS62BZAY)
+![avatar](https://raw.githubusercontent.com/carolcoral/SaveImg/master/2.jpg?token=ACEJW3YNHJIB4LFRHTFV2HS62BZAY)
 
 #### 8. 集群验证
 > 在第一台机器上连接集群的7002端口的节点，在另外一台连接7005节点，连接方式为
@@ -163,11 +166,11 @@ redis-cli -h 192.168.31.245 -c -p 7002
 
 > 在7005节点执行命令  <code>set hello world<code> ，执行结果如下：
 
-![](https://raw.githubusercontent.com/carolcoral/SaveImg/master/3.jpg?token=ACEJW36IMNBP3PYZWBDTHXC62BZDY)
+![avatar](https://raw.githubusercontent.com/carolcoral/SaveImg/master/3.jpg?token=ACEJW36IMNBP3PYZWBDTHXC62BZDY)
 
 > 然后在另外一台7002端口，查看 key 为 hello 的内容， <code>get hello</code>  ，执行结果如下：
 
-![](https://raw.githubusercontent.com/carolcoral/SaveImg/master/4.jpg?token=ACEJW3ZQL2UOJ3EAEHKQ4HC62BZFI)
+![avatar](https://raw.githubusercontent.com/carolcoral/SaveImg/master/4.jpg?token=ACEJW3ZQL2UOJ3EAEHKQ4HC62BZFI)
 
 > 说明集群运作正常。
 

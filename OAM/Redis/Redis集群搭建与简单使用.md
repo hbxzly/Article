@@ -46,21 +46,14 @@ cp redis.conf redis_cluster/7002
 
 > 分别修改这三个配置文件，修改如下内容
 ```shell
-        port 7000 //端口7000,7002,7003
-        
-        bind 本机ip //默认ip为127.0.0.1 需要改为其他节点机器可访问的ip 否则创建集群时无法访问对应的端口，无法创建集群
-        
-        daemonize    yes //redis后台运行
-        
-        pidfile  /var/run/redis_7000.pid //pidfile文件对应7000,7001,7002
-        
-        cluster-enabled  yes //开启集群  把注释#去掉
-        
-        cluster-config-file  nodes_7000.conf //集群的配置  配置文件首次启动自动生成 7000,7001,7002
-        
-        cluster-node-timeout //请求超时  默认15秒，可自行设置
-        
-        appendonly  yes //aof日志开启 有需要就开启，它会每次写操作都记录一条日志
+port 7000 //端口7000,7002,7003      
+bind 本机ip //默认ip为127.0.0.1 需要改为其他节点机器可访问的ip 否则创建集群时无法访问对应的端口，无法创建集群
+daemonize    yes //redis后台运行
+pidfile  /var/run/redis_7000.pid //pidfile文件对应7000,7001,7002
+cluster-enabled  yes //开启集群  把注释#去掉
+cluster-config-file  nodes_7000.conf //集群的配置  配置文件首次启动自动生成 7000,7001,7002
+cluster-node-timeout //请求超时  默认15秒，可自行设置
+appendonly  yes //aof日志开启 有需要就开启，它会每次写操作都记录一条日志
 ```
 
 > 接着在另外一台机器上（192.168.31.210），的操作重复以上三步，只是把目录改为7003、7004、7005，对应的配置文件也按照这个规则修改即可
@@ -148,10 +141,10 @@ gem install redis
 ```
 
 > 之后再运行<code>redis-trib.rb</code>命令，会出现如下提示：
-[!](https://images2015.cnblogs.com/blog/273364/201609/273364-20160929150634344-1055901726.jpg)
+![](https://images2015.cnblogs.com/blog/273364/201609/273364-20160929150634344-1055901726.jpg)
 
 > 输入 yes 即可，然后出现如下内容，说明安装成功。
-[!](https://images2015.cnblogs.com/blog/273364/201609/273364-20160929150720000-1999293873.jpg)
+![](https://images2015.cnblogs.com/blog/273364/201609/273364-20160929150720000-1999293873.jpg)
 
 #### 8. 集群验证
 > 在第一台机器上连接集群的7002端口的节点，在另外一台连接7005节点，连接方式为
@@ -162,10 +155,10 @@ redis-cli -h 192.168.31.245 -c -p 7002
 > 加参数 <code>-C</code> 可连接到集群，因为上面 redis.conf 将 bind 改为了ip地址，所以 <code>-h</code> 参数不可以省略。
 
 > 在7005节点执行命令  <code>set hello world<code> ，执行结果如下：
-[!](https://images2015.cnblogs.com/blog/273364/201609/273364-20160929152337688-1332730145.jpg)
+![](https://images2015.cnblogs.com/blog/273364/201609/273364-20160929152337688-1332730145.jpg)
 
 > 然后在另外一台7002端口，查看 key 为 hello 的内容， <code>get hello</code>  ，执行结果如下：
-[!](https://images2015.cnblogs.com/blog/273364/201609/273364-20160929152449688-978685655.jpg)
+![](https://images2015.cnblogs.com/blog/273364/201609/273364-20160929152449688-978685655.jpg)
 
 > 说明集群运作正常。
 

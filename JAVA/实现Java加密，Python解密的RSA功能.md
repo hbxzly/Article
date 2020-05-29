@@ -12,12 +12,15 @@
 #### 一. 编译
 1. 下载：https://www.openssl.org/source/
 2. 安装 OpenSSL, 请确保你已安装以下组件:
- - make
- - Perl 5
- - an ANSI C compiler
- - a development environment in form of development libraries and C
- - header files
- - a supported Unix operating system
+
+```shell
+- make
+- Perl 5
+- an ANSI C compiler
+- a development environment in form of development libraries and C
+- header files
+- a supported Unix operating system
+```
 
 #### 二. 安装
 ```
@@ -62,9 +65,7 @@ OpenSSL> pkcs12 -export -out rsa_private_key.p12 -inkey rsa_private_key.pem -in 
 > 其中`RSA_ALGORITHM` 设置的是算法的使用模式，因为Python端使用的是`OAEP`所以这里用的是`RSA/ECB/OAEPWithSHA-256AndMGF1Padding`
 > 在Java端我们使用的公钥格式是`DER`，如果使用`PEM`则会出现异常
 
-```
-package site.cnkj.util;
-
+```java
 import org.apache.commons.io.FileUtils;
 import sun.misc.BASE64Decoder;
 import javax.crypto.Cipher;
@@ -168,14 +169,19 @@ public class FileEncryptDecrypt {
 ```
 
 ## 2.Python端解密
-> Python端可以使用的模块是很多的，通常可以用`rsa、Crypto、PyCryptodome、PyCrypt`等，需要注意的是其中`PyCrypt`已经停止维护了不建议使用，但是幸运的是`PyCryp`t有一个分支叫`PyCryptodome`
-> 为了便于阅读，Java端对加密后的数据进行了Base64的格式转换，因此在Python端也同样需要对获取的加密后的数据进行Base64的转换后再进行解密。
-> 通过观察，发现加密后进行Base64转换后的数据结束符为“`==`”，因此我在这里是直接根据结束符进行拆分数据的，拆分后的数据分别解密后放在同一个字符串集合里面，这里你不需要但是如果出现换行的情况是否还需要自己手动设置换行，当解密后原有的换行符依然可用。
-> 但是需要注意的是在windows环境下文件的换行符是"`\r\n`"，加密后依然加密的是"`\r\n`"，但是，但我们解密后写入文件的时候应当替换"`\r\n`"为"`\n`"，否则你会发现多了一行换行，因为当Python重写写入文件的时候认为"`\r\n`"为“`回车换行`”，所以体现在文件中就是两次换行的效果了。
-> 在 `_init()`方法中获取私钥的位置只需要把<code>os.path.join(os.path.dirname(os.getcwd()), "config", "rsa_private_key.pem")</code>替换成你自己的私钥路径即可
-> 在Python端我们使用的私钥格式是`PEM`
+> Python端可以使用的模块是很多的，通常可以用`rsa、Crypto、PyCryptodome、PyCrypt`等，需要注意的是其中`PyCrypt`已经停止维护了不建议使用，但是幸运的是`PyCryp`t有一个分支叫`PyCryptodome`.
 
-```
+> 为了便于阅读，Java端对加密后的数据进行了Base64的格式转换，因此在Python端也同样需要对获取的加密后的数据进行Base64的转换后再进行解密.
+
+> 通过观察，发现加密后进行Base64转换后的数据结束符为“`==`”，因此我在这里是直接根据结束符进行拆分数据的，拆分后的数据分别解密后放在同一个字符串集合里面，这里你不需要但是如果出现换行的情况是否还需要自己手动设置换行，当解密后原有的换行符依然可用.
+
+> 但是需要注意的是在windows环境下文件的换行符是"`\r\n`"，加密后依然加密的是"`\r\n`"，但是，但我们解密后写入文件的时候应当替换"`\r\n`"为"`\n`"，否则你会发现多了一行换行，因为当Python重写写入文件的时候认为"`\r\n`"为“`回车换行`”，所以体现在文件中就是两次换行的效果了.
+
+> 在 `_init()`方法中获取私钥的位置只需要把<code>os.path.join(os.path.dirname(os.getcwd()), "config", "rsa_private_key.pem")</code>替换成你自己的私钥路径即可.
+
+> 在Python端我们使用的私钥格式是`PEM`.
+
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """

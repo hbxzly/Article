@@ -152,14 +152,11 @@ redis-cli -h 192.168.31.245 -c -p 7002
 
 > 加参数 <code>-C</code> 可连接到集群，因为上面 redis.conf 将 bind 改为了ip地址，所以 <code>-h</code> 参数不可以省略。
 
-
 > 在7005节点执行命令  <code>set hello world<code> ，执行结果如下：
 ![](https://raw.githubusercontent.com/carolcoral/SaveImg/master/3.jpg?token=ACEJW36IMNBP3PYZWBDTHXC62BZDY)
 
-
 > 然后在另外一台7002端口，查看 key 为 hello 的内容， <code>get hello</code>  ，执行结果如下：
 ![](https://raw.githubusercontent.com/carolcoral/SaveImg/master/4.jpg?token=ACEJW3ZQL2UOJ3EAEHKQ4HC62BZFI)
-
 
 > 说明集群运作正常。
 

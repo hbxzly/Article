@@ -8,6 +8,8 @@ Some articles around Dev
 ## 前端
 * [原生js获取客户端本地IP](https://carolcoral.github.io/Article/Web/原生js获取客户端本地IP)
 
+* [基于jQuery的使用Ajax动态执行模糊查询功能](https://carolcoral.github.io/Article/Web/基于jQuery的使用Ajax动态执行模糊查询功能)
+
 ## 后端
 ### Java
 * [实现Java加密，Python解密的RSA功能](https://carolcoral.github.io/Article/JAVA/实现Java加密，Python解密的RSA功能)
@@ -39,6 +41,12 @@ Some articles around Dev
 
 * [简单的基于Python2.7版本的多进程下开发多线程的示例](https://carolcoral.github.io/Article/Python/简单的基于Python2.7版本的多进程下开发多线程的示例)
 
+* [Python操作ElasticSearch](https://carolcoral.github.io/Article/Python/Python操作ElasticSearch)
+
+* [python操作ini配置文件](https://carolcoral.github.io/Article/Python/python操作ini配置文件)
+
+* [Python基于SMTP协议发送邮件](https://carolcoral.github.io/Article/Python/Python基于SMTP协议发送邮件)
+
 
 ## 运维
 ### LogStash
@@ -60,7 +68,12 @@ Some articles around Dev
 ### Redis
 * [Redis 运维的复制、哨兵、集群与可视化工具 CacheCloud](https://carolcoral.github.io/Article/OAM/Redis/Redis%20运维的复制、哨兵、集群与可视化工具%20CacheCloud)
 
+* [Redis集群搭建与简单使用](https://carolcoral.github.io/Article/OAM/Redis/Redis集群搭建与简单使用)
+
 ### Linux
 * [Linux常用命令](https://carolcoral.github.io/Article/OAM/Linux/Linux)
 
 * [OpenSSL生成密钥](https://carolcoral.github.io/Article/OAM/Linux/OpenSSL)
+
+### Kafka
+* [](https://carolcoral.github.io/Article/OAM/Kafka/kafka中topic基本操作)

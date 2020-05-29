@@ -1,10 +1,9 @@
 # 基于Spring-Kafka 完成的一些基本操作
 
-@[toc]
-**原本写 kafka-client 的时候使用的是原生的kafka连接 org.apache.kafka，但是发现不好对缓存容量以及对握手次数的控制，所以后面换用了 spring-kafka ，下面的代码是基于 spring-kafka 完成的开发。功能包含：查询指定的 topic 并判断是否存在、 以指定的分区数和副本数创建 topic、 以及发送数据到指定的 topic 中。**
+> 原本写 kafka-client 的时候使用的是原生的kafka连接 org.apache.kafka，但是发现不好对缓存容量以及对握手次数的控制，所以后面换用了 spring-kafka ，下面的代码是基于 spring-kafka 完成的开发。功能包含：查询指定的 topic 并判断是否存在、 以指定的分区数和副本数创建 topic、 以及发送数据到指定的 topic 中.
 
 ## pom.xml
-```
+```java
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -58,8 +57,9 @@
 ```
 
 ## KafkaConfig
-* 相关配置的功能说明介绍：http://kafka.apachecn.org/documentation.html#producerconfigs
-```
+> 相关配置的功能说明介绍：http://kafka.apachecn.org/documentation.html#producerconfigs
+
+```java
 @Configuration
 @EnableKafka
 @Data
@@ -141,7 +141,7 @@ public class KafkaConfig {
 ```
 
 ## KafkaService
-```
+```java
 public interface KafkaService {
 
     /**
@@ -174,7 +174,7 @@ public interface KafkaService {
 ```
 
 ## KafkaServiceImpl
-```
+```java
 @Service
 public class KafkaServiceImpl implements KafkaService {
 
@@ -246,5 +246,3 @@ public class KafkaServiceImpl implements KafkaService {
     }
 }
 ```
-
-

@@ -300,3 +300,25 @@ public class Test3 {
 ===========parse5============
 {"id0":"1","id2":"3","id1":"2","id4":"5","id3":"4","id5":{"id0":"1","id2":"3","id1":"2","id4":"5","id3":"4","id5":["id5"]}}
 ```
+
+### 执行速度
+```java
+long currentTimeMillis = System.currentTimeMillis();
+System.out.println(currentTimeMillis);
+for (int i = 0; i < 10000; i++) {
+    JSONObject parse = SoapXmlFormatUtil.parse(message);
+    JSONObject parse2 = SoapXmlFormatUtil.parse(message2);
+    JSONObject parse3 = SoapXmlFormatUtil.parse(message3);
+    JSONObject parse4 = SoapXmlFormatUtil.parse(message4);
+    JSONObject parse5 = SoapXmlFormatUtil.parse(message5);
+}
+long timeMillis = System.currentTimeMillis();
+System.out.println(timeMillis);
+System.out.println((timeMillis-currentTimeMillis)/1000);
+```
+```java
+1590721566666
+1590721579405
+12
+```
+> 12秒执行5万条xml数据的解析，平均 4166条/s

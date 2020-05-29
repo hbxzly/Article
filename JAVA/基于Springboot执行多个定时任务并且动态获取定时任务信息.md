@@ -1,18 +1,19 @@
 # 基于Springboot执行多个定时任务并且动态获取定时任务信息
 
-@[toc]
 ## 简介
-因为一些业务的需要所有需要使用多个不同的定时任务，并且每个定时任务中的定时信息是通过数据库动态获取的。下面是我写的使用了Springboot+Mybatis写的多任务定时器。
-主要实现了以下功能：
+> 因为一些业务的需要所有需要使用多个不同的定时任务，并且每个定时任务中的定时信息是通过数据库动态获取的。下面是我写的使用了Springboot+Mybatis写的多任务定时器。
 
-		1.同时使用多个定时任务
-		2.动态获取定时任务的定时信息
+> 主要实现了以下功能：
+```shell
+1.同时使用多个定时任务
+2.动态获取定时任务的定时信息
+```
 
 ## 说明
-因为我们需要从数据库动态的获取定时任务的信息，所以我们需要集成 SchedulingConfigurer 然后重写  configureTasks 方法即可，调用不同的定时任务只需要通过service方法调用不用的实现返回对应的定时任务信息。有多少个定时任务就重写多少个该方法（最好创建不同的类）。然后直接在application中启动即可。
+> 因为我们需要从数据库动态的获取定时任务的信息，所以我们需要集成 SchedulingConfigurer 然后重写  configureTasks 方法即可，调用不同的定时任务只需要通过service方法调用不用的实现返回对应的定时任务信息。有多少个定时任务就重写多少个该方法（最好创建不同的类）。然后直接在application中启动即可。
 
 ## SpringApplication-启动类
-```
+```java
 package test;
 
 import org.mybatis.spring.annotation.MapperScan;
@@ -39,14 +40,14 @@ public class TomcatlogApplication {
 
 ## 动态获取定时任务信息
 ### mapper
-```
+```java
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
 /*
- * @version 1.0 created by liuxuewen on 2018/8/21 14:39
+ * @version 1.0 created by Carol on 2018/8/21 14:39
  */
 public interface TomcatlogMapper {
     @Select("SELECT * FROM scheduledtask s WHERE s.`enable` = 1")
@@ -55,7 +56,7 @@ public interface TomcatlogMapper {
 
 ```
 ### service
-```
+```java
 package test.service;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +70,7 @@ public interface TomcatlogService {
 
 ```
 ### service impl
-```
+```java
 import test.mapper.tomcatlog.TomcatlogMapper;
 import test.service.TomcatlogService;
 import org.slf4j.Logger;
@@ -79,7 +80,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /*
- * @version 1.0 created by liuxuewen on 2018/8/21 14:44
+ * @version 1.0 created by Carol on 2018/8/21 14:44
  */
 @Service
 public class TomcatlogServiceImpl implements TomcatlogService {
@@ -100,7 +101,7 @@ public class TomcatlogServiceImpl implements TomcatlogService {
     }
 ```
 ## 定时任务
-```
+```java
 import test.service.TomcatlogService ;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -112,7 +113,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 /*
- * @version 1.0 created by liuxuewen on 2018/8/27 9:25
+ * @version 1.0 created by Carol on 2018/8/27 9:25
  */
 @Component
 public class ElasticsearchSchedultaskController implements SchedulingConfigurer {

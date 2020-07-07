@@ -1,5 +1,7 @@
 > 原来写了一篇关于springboot实现计划任务的文章，但是有较多的人都在问为什么数据库变更后计划任务没刷新，怎么去动态获取，怎么实现多线程并发执行，所以现在新开一篇文章，重新实现计划任务的方法，抽象出刷新功能和并发功能。
+
 ### 动态获取并刷新的类：
+
 ```java
 @Component
 public class ScheduledTask implements SchedulingConfigurer {
@@ -72,6 +74,7 @@ public class ScheduledTask implements SchedulingConfigurer {
 ```
 
 ### 唯一用的对象类：
+
 ```java
 @Data
 public class LogTask {
@@ -81,6 +84,7 @@ public class LogTask {
 ```
 
 ### 如何使用
+
 1. 在你的项目中找个地方去实现从数据库获取这个对象集合的方法
 2. 把获取到的数据通过调用 refresh 方法去刷新到计划任务列表中
 3. 每次数据库中的计划任务发生变化后重新执行上面两步即可

@@ -34,6 +34,8 @@ Some articles around Dev
 
 * [基于Springboot执行多个定时任务并且动态获取定时任务信息](https://carolcoral.github.io/Article/JAVA/基于Springboot执行多个定时任务并且动态获取定时任务信息)
 
+* [SpringBoot实现多线程并发动态执行计划任务](https://carolcoral.github.io/Article/JAVA/SpringBoot实现多线程并发动态执行计划任务)
+
 ### Python
 * [支持高并发下的Flask架构部署](https://carolcoral.github.io/Article/Python/支持高并发下的Flask架构部署)
 
